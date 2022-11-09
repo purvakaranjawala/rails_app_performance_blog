@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14.5
+    environment:
+      # RAILS_MASTER_KEY: 1ee858ba49a15d14c7587b3c1413b7de
+      - POSTGRES_PASSWORD=rails
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    networks:
+      - my-network
+    volumes:
+      - .:/MyDemoApp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    env_file:
+      - .env
+    environment:
+      # RAILS_MASTER_KEY: 1ee858ba49a15d14c7587b3c1413b7de
+      - HISTFILE=/usr/src/app/log/.bash_history 
+volumes:
+  postgres:
+
+networks:
+  my-network:
+    external: true

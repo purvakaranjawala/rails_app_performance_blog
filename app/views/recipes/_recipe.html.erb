@@ -1,0 +1,27 @@
+<div id="<%= dom_id recipe %>">
+  <table class="w3-table w3-striped">
+    <thead>
+      <th>Title:</th>
+      <th>Instructions</th>
+      <th>Ratings</th>
+      <th>Price:</th>
+      <th>Total Comments: </th>
+    </thead>
+    <tr>
+      <td>
+        <%= recipe.title %>
+      </td>
+      <td>
+        <%= recipe.instructions %>
+      </td>
+      <td>
+        <%= recipe.ratings%>
+      </td>
+      <td>
+        <%= recipe.price %>
+      </td>
+      <td> <%= recipe.comments_count %> </td>
+      <td>| <%= link_to "Show this recipe", recipe %> </td>
+    </tr>
+  </table>
+</div>

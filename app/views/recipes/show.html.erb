@@ -1,0 +1,43 @@
+<p style="color: green"><%= notice %></p>
+
+<div id="<%= dom_id @recipe %>">
+  <table class="w3-table w3-striped">
+    <thead>
+      <th>Title:</th>
+      <th>Instructions</th>
+      <th>Ratings</th>
+      <th>Price:</th>
+    </thead>
+    <tr>
+      <td>
+        <%= @recipe.title %>
+      </td>
+      <td>
+        <%= @recipe.instructions %>
+      </td>
+      <td>
+        <%= @recipe.ratings%>
+      </td>
+      <td>
+        <%= @recipe.price %>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<div>
+  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
+  <%= link_to "Back to recipes", recipes_path %>
+
+  <%= link_to "DestroyRecipe", @recipe, data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+</div>
+<h2>Comments:</h2>
+<%= render @recipe.comments %>
+
+
+<h2>Add a Receipe Information:</h2>
+<%= render 'comments/form' %>

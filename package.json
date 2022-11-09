@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@rails/webpacker": "5.4.3",
+    "bootstrap": "^5.2.2",
+    "esbuild": "^0.15.13",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
+  }
+}

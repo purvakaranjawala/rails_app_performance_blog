@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @receipe_info %>
+
+<% if @receipe_info.main_image.attached? %>
+  <%= image_tag @receipe_info.main_image.variant(:thumb) %>
+<% end %>
+<% @receipe_info.other_images.each do |other| %>
+  <%= image_tag other.variant(:thumb)%>
+<% end %>
+
+<div>
+  <%= link_to "Edit this receipe info", edit_receipe_info_path(@receipe_info) %> |
+  <%= link_to "Back to receipe infos", receipe_infos_path %>
+
+  <%= button_to "Destroy this receipe info", @receipe_info, method: :delete %>
+</div>
