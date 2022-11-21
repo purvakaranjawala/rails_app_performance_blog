@@ -20,7 +20,13 @@
       <td>
         <%= recipe.price %>
       </td>
-      <td> <%= recipe.comments_count %> </td>
+      <td>
+        <% recipe.comments.find_each do |comment| %>
+          <%# cache(comment) do %>
+            <%= comment.commenter %>
+          <%# end %>
+        <% end %>
+      </td>
       <td>| <%= link_to "Show this recipe", recipe %> </td>
     </tr>
   </table>

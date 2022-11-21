@@ -1,15 +1,16 @@
 <%= form_with model: [ @recipe, @recipe.comments.build ] do |form| %>
+  
   <p>
     <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
+    <%= form.select :user_id, User.all.collect { |t| [t.name, t.id]}, {} %>
   </p>
   <p>
     <%= form.label :body %><br>
     <%= form.text_area :body %>
   </p>
   <p>
-    <%= form.label :main_image %>
-    <%= form.file_field :main_image %>
+    <%#= form.label :main_image %>
+    <%#= form.file_field :main_image %>
   </p>
   <p>
     <%= form.submit %>

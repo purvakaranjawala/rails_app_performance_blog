@@ -3,9 +3,12 @@
 <h1>Recipes</h1>
 <div id="recipes">
   <% @recipes.each do |recipe| %>
-    <%= render recipe %> 
+    <%# cache "recipes-#{recipe.id}" do %>
+      <%= render recipe %>
+    <%# end %>
   <% end %>
 </div>
 
 <%= link_to "New recipe", new_recipe_path %>
 <%= link_to "New receipe info", new_receipe_info_path %>
+<%= link_to 'New user', new_user_path %>

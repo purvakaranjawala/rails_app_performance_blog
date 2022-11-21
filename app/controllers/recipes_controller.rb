@@ -1,16 +1,17 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
 
-  # GET /recipes or /recipes.json
+  # GET /recipes
   def index
-    @recipes = Recipe.joins(:comments)
-                     .select('recipes.*, COUNT(comments.*) AS comments_count')
-                     .group('recipes.id')
+    # @recipes = Recipe.joins(:comments)
+    #                  .select('recipes.*, COUNT(comments.*) AS comments_count')
+    #                  .group('recipes.id')
+    @recipes = Recipe.includes(:comments)
   end
 
-  # GET /recipes/1 or /recipes/1.json
+  # GET /recipes/1
   def show
-    # @comments = Recipe.with_attached_main_images.find(params[:id])
+    fresh_when last_modified: @recipe.updated_at.utc, etag: @recipe.cache_key
   end
 
   # GET /recipes/new
@@ -21,7 +22,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1/edit
   def edit; end
 
-  # POST /recipes or /recipes.json
+  # POST /recipes
   def create
     @recipe = Recipe.new(recipe_params)
 
@@ -34,7 +35,7 @@ class RecipesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /recipes/1 or /recipes/1.json
+  # PATCH/PUT /recipes/1
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
@@ -45,7 +46,7 @@ class RecipesController < ApplicationController
     end
   end
 
-  # DELETE /recipes/1 or /recipes/1.json
+  # DELETE /recipes/1
   def destroy
     @recipe.destroy
     redirect_to recipes_url, notice: 'Recipe was successfully destroyed.'
@@ -55,7 +56,8 @@ class RecipesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_recipe
-    @recipe = Recipe.find(params[:id])
+    # @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(comments: %i[user]).find(params[:id]) # tFor N+1 query
   end
 
   # Only allow a list of trusted parameters through.

@@ -13,11 +13,9 @@ class CommentsController < ApplicationController
         format.html { redirect_to @recipe, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
-    redirect_to recipe_path(@recipe)
   end
 
   def destroy
@@ -30,6 +28,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:commenter, :body, :main_image, :parent_id)
+    params.require(:comment).permit(:commenter, :body, :main_image, :parent_id, :user_id)
   end
 end

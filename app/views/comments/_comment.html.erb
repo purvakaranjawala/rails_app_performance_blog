@@ -6,15 +6,15 @@
     </thead>
     <tr>
       <td>
-        <%= comment.commenter %>
+        <%= comment.commenter %>|  <%= comment.user.address %>
       </td>
       <td>
         <%= comment.body %>
       </td>
       <td>
-        <% if comment.main_image.attached? %>
-          <%= image_tag comment.main_image.variant(:thumb) %>
-        <% end %>
+        <%# <% if comment.main_image.attached? %>
+          <%#= image_tag comment.main_image.variant(:thumb) %>
+        <%# <% end %>
       </td>
       <td>
         <%= link_to "Destroy", [comment.recipe, comment], data: {
@@ -24,14 +24,14 @@
       </td>
       
       <td>
-        <%= link_to 'Reply', new_recipe_comment_path(@recipe, parent_id: comment.id), remote: true, class: 'd-block' %>
+        <%#= link_to 'Reply', new_recipe_comment_path(@recipe, parent_id: comment.id), remote: true, class: 'd-block' %>
           </div>
         </div>
-        <% if comment.replies.any? %>
-          <% comment.replies.each do |reply| %> 
-            <%= render partial: 'comments/reply', locals: { reply: reply } %>
-          <% end %>
-        <% end %>
+        <%# <% if comment.replies.any? %>
+          <%# comment.replies.each do |reply| %> 
+            <%#= render partial: 'comments/reply', locals: { reply: reply } %>
+          <%# end %>
+        <%# <% end %>
       </td>
 
       <td>  <div id="reply-form-<%= comment.id %>"></div> </td>
