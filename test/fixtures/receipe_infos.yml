@@ -1,11 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+receipe_info_one:
   title: MyString
-  body: MyText
+  ingredients: MyText
+  speciality: "spicy"
+  origin: "Thai"
+  recipe: recipe_one
   posted_at: 2022-10-13 12:40:10
 
-two:
+receipe_info_two:
   title: MyString
-  body: MyText
+  ingredients: MyText
+  speciality: "Veg"
+  recipe: recipe_two
+  origin: "Chinese"
   posted_at: 2022-10-13 12:40:10

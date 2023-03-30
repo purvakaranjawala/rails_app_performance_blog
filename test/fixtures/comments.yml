@@ -1,11 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  commenter: MyString
-  body: MyText
-  recipe: one
+  commenter: Charles
+  body: Hello World
+  user: charles
+  recipe: recipe_one
 
 two:
-  commenter: MyString
-  body: MyText
-  recipe: two
+  commenter: Holland
+  body: Hello11
+  user: holland
+  recipe: recipe_two
+
+three:
+  commenter: Charles
+  body: Greeting!!
+  user: charles
+  recipe: recipe_two

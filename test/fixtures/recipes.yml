@@ -1,11 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  tittle: MyString
-  instructions: MyText
-  ratings: 1
+recipe_one:
+  title: Sandwich
+  instructions: Sandwich instructions
+  price: 300
+  status: approved
+  ratings: 3
 
-two:
-  tittle: MyString
-  instructions: MyText
-  ratings: 1
+recipe_two:
+  title: Noodles
+  instructions: Noodles instructions
+  price: 200
+  status: pending
+  ratings: 4

@@ -1,7 +1,21 @@
-require "test_helper"
+require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @user = User.new(name: 'Jivga')
+  end
+
+  test 'user should be valid' do
+    assert @user.valid?
+  end
+
+  test 'username should not be blank' do
+    @user.name = ''
+    assert_not @user.valid?
+  end
+
+  test 'username should not exceeds 25 characters' do
+    @user.name = 'a' * 26
+    assert_not @user.valid?
+  end
 end

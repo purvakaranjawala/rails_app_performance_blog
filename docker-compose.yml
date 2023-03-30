@@ -1,10 +1,10 @@
 version: '3.8'
 services:
-  db:
+  localhost:
     image: postgres:14.5
     environment:
-      # RAILS_MASTER_KEY: 1ee858ba49a15d14c7587b3c1413b7de
-      - POSTGRES_PASSWORD=rails
+      - POSTGRES_PASSWORD=postgres
+    #   RAILS_MASTER_KEY: 1ee858ba49a15d14c7587b3c1413b7de
     volumes:
       - postgres:/var/lib/postgresql/data
       # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -20,12 +20,12 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      - localhost
     env_file:
       - .env
-    environment:
-      # RAILS_MASTER_KEY: 1ee858ba49a15d14c7587b3c1413b7de
-      - HISTFILE=/usr/src/app/log/.bash_history 
+    # environment:
+    #   RAILS_MASTER_KEY: 1ee858ba49a15d14c7587b3c1413b7de
+    #   # - HISTFILE=/usr/src/app/log/.bash_history 
 volumes:
   postgres:
 

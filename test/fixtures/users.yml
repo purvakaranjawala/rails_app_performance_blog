@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  phone_number: 1
-  address: MyText
+charles:
+  name: Charles Mike
+  phone_number: 1111111
+  address: 4, Tower Square
 
-two:
-  name: MyString
-  phone_number: 1
-  address: MyText
+holland:
+  name: Ro Holland
+  phone_number: 12222345
+  address: 24/1, Hamilton street

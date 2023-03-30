@@ -67,6 +67,8 @@ group :development do
   gem 'derailed_benchmarks'
   gem 'stackprof'
 
+  gem 'rails_best_practices'
+
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end

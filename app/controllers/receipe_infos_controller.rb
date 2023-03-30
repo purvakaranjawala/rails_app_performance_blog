@@ -20,7 +20,7 @@ class ReceipeInfosController < ApplicationController
   # POST /receipe_infos
   def create
     @receipe_info = ReceipeInfo.new(receipe_info_params)
-
+    binding.pry
     respond_to do |format|
       if @receipe_info.save
         format.html { redirect_to receipe_info_url(@receipe_info), notice: 'Receipe info was successfully created.' }
@@ -60,7 +60,9 @@ class ReceipeInfosController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def receipe_info_params
-    params.require(:receipe_info).permit(:title, :body, :posted_at, :content, :remove_main_image, :main_image,
+    params.require(:receipe_info).permit(:title, :ingredients, :speciality,
+                                         :origin, :posted_at, :content,
+                                         :remove_main_image, :main_image, :recipe_id,
                                          other_images: [])
   end
 end

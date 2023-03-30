@@ -17,8 +17,13 @@
   </div>
 
   <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
+    <%= form.label :ingredients, style: "display: block" %>
+    <%= form.text_area :ingredients %>
+  </div>
+
+  <div>
+    <%= form.label :recipes_id, style: "display: block" %>
+    <%= form.collection_select :recipes_id, Recipe.order(:title), :id,:title, include_blank: true %>
   </div>
 
   <div class="field">

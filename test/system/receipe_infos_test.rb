@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class ReceipeInfosTest < ApplicationSystemTestCase
   setup do
-    @receipe_info = receipe_infos(:one)
+    @receipe_info = receipe_infos(:receipe_info_one)
   end
 
   test "visiting the index" do
